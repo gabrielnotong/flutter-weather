@@ -26,11 +26,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void getData() async {
     Map<String, dynamic> weatherData =
         await WeatherModel().getLocationWeather();
-    Navigator.pushNamed(
+    Navigator.push(
       context,
-      '/location',
-      arguments: LocationScreen(
-        currentLocationWeather: weatherData,
+      MaterialPageRoute(
+        builder: (BuildContext context) => LocationScreen(
+          currentLocationWeather: weatherData,
+        ),
       ),
     );
   }
